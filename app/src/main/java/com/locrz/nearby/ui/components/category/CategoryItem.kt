@@ -1,6 +1,5 @@
 package com.locrz.nearby.ui.components.category
 
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size

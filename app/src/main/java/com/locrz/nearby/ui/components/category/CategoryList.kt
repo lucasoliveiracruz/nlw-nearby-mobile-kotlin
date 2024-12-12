@@ -28,7 +28,7 @@ fun CategoryList(
 
     LaunchedEffect(key1 = selectedCategoryId) {
         val selectedCategory = categories.find { it.id === selectedCategoryId }
-        if (selectedCategory !== null) onCategoryChanged(selectedCategory);
+        if (selectedCategory !== null) onCategoryChanged(selectedCategory)
     }
 
     LazyRow(

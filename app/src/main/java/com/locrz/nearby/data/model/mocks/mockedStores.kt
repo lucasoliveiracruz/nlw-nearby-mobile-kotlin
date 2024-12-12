@@ -1,6 +1,5 @@
 package com.locrz.nearby.data.model.mocks
 
-import com.locrz.nearby.data.model.Category
 import com.locrz.nearby.data.model.Rule
 import com.locrz.nearby.data.model.Store
 
