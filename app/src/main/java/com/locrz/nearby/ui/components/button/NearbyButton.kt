@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -42,7 +43,11 @@ fun NearbyButton(
             horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             iconRes?.let {
-                Icon(painter = painterResource(iconRes), contentDescription = "Ícone")
+                Icon(
+                    painter = painterResource(iconRes),
+                    contentDescription = "Ícone",
+                    modifier = Modifier.size(20.dp)
+                )
             }
             text?.let {
                 Text(text = text.uppercase(), style = Typography.labelLarge)

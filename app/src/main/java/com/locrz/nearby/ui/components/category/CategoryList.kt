@@ -38,7 +38,6 @@ fun CategoryList(
     ) {
         items(items = categories, key = { c -> c.id }) { category ->
             CategoryItem(
-                modifier = modifier,
                 category = category,
                 isSelected = category.id === selectedCategoryId,
                 onCategoryClick = { isSelected ->

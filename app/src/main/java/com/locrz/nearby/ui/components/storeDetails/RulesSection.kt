@@ -23,7 +23,7 @@ fun RulesSection(modifier: Modifier = Modifier, couponRules: List<Rule>) {
     ) {
         Text(text = "Regulamento", style = Typography.headlineSmall)
         Text(
-            modifier = Modifier.padding(start = 16.dp),
+            modifier = Modifier.padding(start = 8.dp),
             text = couponRules.joinToString(
                 separator = "\n",
                 transform = { "• ${it.description}" }),
@@ -39,6 +39,7 @@ fun RulesSection(modifier: Modifier = Modifier, couponRules: List<Rule>) {
 private fun RulesSectionPreview() {
     RulesSection(
         modifier = Modifier.fillMaxWidth(),
-        couponRules = mockedStores[0].couponRules
+//        couponRules = mockedStores[0].couponRules
+        couponRules = emptyList()
     )
 }
