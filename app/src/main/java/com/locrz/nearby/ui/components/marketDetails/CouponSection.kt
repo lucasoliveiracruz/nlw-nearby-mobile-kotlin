@@ -1,4 +1,4 @@
-package com.locrz.nearby.ui.components.storeDetails
+package com.locrz.nearby.ui.components.marketDetails
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

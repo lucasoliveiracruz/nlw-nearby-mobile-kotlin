@@ -1,4 +1,4 @@
-package com.locrz.nearby.ui.components.storeDetails
+package com.locrz.nearby.ui.components.marketDetails
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -11,7 +11,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.locrz.nearby.data.model.Rule
-import com.locrz.nearby.data.model.mocks.mockedStores
 import com.locrz.nearby.ui.theme.Gray500
 import com.locrz.nearby.ui.theme.Typography
 

@@ -1,4 +1,4 @@
-package com.locrz.nearby.ui.components.store
+package com.locrz.nearby.ui.components.market
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -27,7 +27,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.locrz.nearby.R
-import com.locrz.nearby.data.model.Store
+import com.locrz.nearby.data.model.Market
 import com.locrz.nearby.ui.theme.Gray100
 import com.locrz.nearby.ui.theme.Gray200
 import com.locrz.nearby.ui.theme.Gray400
@@ -37,13 +37,13 @@ import com.locrz.nearby.ui.theme.RedBase
 import com.locrz.nearby.ui.theme.Typography
 
 @Composable
-fun CardStore(
+fun MarketCard(
     modifier: Modifier = Modifier,
-    store: Store,
-    onCardPress: (store: Store) -> Unit
+    market: Market,
+    onCardPress: (market: Market) -> Unit
 ) {
     val availableCouponsDescription =
-        if (store.coupons == 1) "cupom disponível" else "cupons disponíveis";
+        if (market.coupons == 1) "cupom disponível" else "cupons disponíveis";
 
     Card(
         modifier = modifier
@@ -51,7 +51,7 @@ fun CardStore(
             .background(Gray100)
             .border(width = 1.dp, color = Gray200, shape = RoundedCornerShape(12.dp)),
         onClick = {
-            onCardPress(store)
+            onCardPress(market)
         }
     ) {
         Row(
@@ -73,10 +73,10 @@ fun CardStore(
                 contentScale = ContentScale.Crop
             )
             Column {
-                Text(text = store.name, style = Typography.titleSmall, color = Gray600)
+                Text(text = market.name, style = Typography.titleSmall, color = Gray600)
                 Spacer(modifier = Modifier.size(8.dp))
                 Text(
-                    text = store.description,
+                    text = market.description,
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis,
                     style = Typography.bodyMedium,
@@ -92,10 +92,10 @@ fun CardStore(
                         modifier = Modifier.size(24.dp),
                         painter = painterResource(R.drawable.ic_ticket),
                         contentDescription = "",
-                        tint = if (store.coupons > 0) RedBase else Gray400,
+                        tint = if (market.coupons > 0) RedBase else Gray400,
                     )
                     Text(
-                        text = "${store.coupons} ${availableCouponsDescription}",
+                        text = "${market.coupons} ${availableCouponsDescription}",
                         style = Typography.bodyMedium,
                         color = Gray400
                     )
@@ -107,10 +107,10 @@ fun CardStore(
 
 @Preview
 @Composable
-private fun CardStorePreview() {
-    CardStore(
+private fun MarketCardPreview() {
+    MarketCard(
         modifier = Modifier.fillMaxWidth(),
-        store = Store(
+        market = Market(
             id = "1",
             name = "Loja do Zé",
             description = "Vendendo espetinhos até a madrugada, compre já e ganhe muitos cupons para a próxima compra do momento",
@@ -118,9 +118,9 @@ private fun CardStorePreview() {
             longitude = 0.0,
             latitude = 0.0,
             categoryId = "5",
-            fullAddress = "",
+            address = "",
             phone = "",
-            imageUrl = ""
+            cover = ""
         ),
         onCardPress = {},
     )
@@ -129,10 +129,10 @@ private fun CardStorePreview() {
 
 @Preview
 @Composable
-private fun CardStoreWithOneCouponPreview() {
-    CardStore(
+private fun MarketCardWithOneCouponPreview() {
+    MarketCard(
         modifier = Modifier.fillMaxWidth(),
-        store = Store(
+        market = Market(
             id = "1",
             name = "Loja do Zé",
             description = "Vendendo espetinhos até a madrugada, compre já e ganhe muitos cupons para a próxima compra do momento",
@@ -140,9 +140,9 @@ private fun CardStoreWithOneCouponPreview() {
             longitude = 0.0,
             latitude = 0.0,
             categoryId = "5",
-            fullAddress = "",
+            address = "",
             phone = "",
-            imageUrl = ""
+            cover = ""
         ),
         onCardPress = {},
     )
@@ -150,10 +150,10 @@ private fun CardStoreWithOneCouponPreview() {
 
 @Preview
 @Composable
-private fun CardStoreWithoutCouponsPreview() {
-    CardStore(
+private fun MarketCardWithoutCouponsPreview() {
+    MarketCard(
         modifier = Modifier.fillMaxWidth(),
-        store = Store(
+        market = Market(
             id = "1",
             name = "Loja do Zé",
             description = "Vendendo espetinhos até a madrugada, compre já e ganhe muitos cupons para a próxima compra do momento",
@@ -161,9 +161,9 @@ private fun CardStoreWithoutCouponsPreview() {
             longitude = 0.0,
             latitude = 0.0,
             categoryId = "5",
-            fullAddress = "",
+            address = "",
             phone = "",
-            imageUrl = ""
+            cover = ""
         ),
         onCardPress = {},
     )

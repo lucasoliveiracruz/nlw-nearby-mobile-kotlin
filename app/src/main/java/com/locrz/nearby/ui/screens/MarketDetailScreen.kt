@@ -13,7 +13,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -25,19 +24,17 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import coil3.compose.AsyncImage
 import com.locrz.nearby.R
-import com.locrz.nearby.data.model.Store
-import com.locrz.nearby.data.model.mocks.mockedStores
+import com.locrz.nearby.data.model.Market
+import com.locrz.nearby.data.model.mocks.mockedMarkets
 import com.locrz.nearby.ui.components.button.NearbyButton
-import com.locrz.nearby.ui.components.storeDetails.AvailableCoupons
-import com.locrz.nearby.ui.components.storeDetails.InfoSection
-import com.locrz.nearby.ui.components.storeDetails.RulesSection
+import com.locrz.nearby.ui.components.marketDetails.AvailableCoupons
+import com.locrz.nearby.ui.components.marketDetails.InfoSection
 import com.locrz.nearby.ui.theme.GreenBase
 import com.locrz.nearby.ui.theme.Typography
 
 @Composable
-fun StoreDetailScreen(modifier: Modifier = Modifier, store: Store, goBack: () -> Unit) {
+fun MarketDetailScreen(modifier: Modifier = Modifier, market: Market, goBack: () -> Unit) {
 
     Box(
         modifier = modifier.fillMaxSize()
@@ -46,9 +43,9 @@ fun StoreDetailScreen(modifier: Modifier = Modifier, store: Store, goBack: () ->
             modifier = Modifier
                 .fillMaxWidth()
                 .fillMaxHeight(0.3f),
-            contentDescription = "Store image",
+            contentDescription = "Market image",
             contentScale = ContentScale.Crop,
-//            model = store.imageUrl,
+//            model = market.imageUrl,
             painter = painterResource(R.drawable.img_burger)
         )
 
@@ -71,7 +68,7 @@ fun StoreDetailScreen(modifier: Modifier = Modifier, store: Store, goBack: () ->
                     .fillMaxSize()
                     .padding(32.dp),
             ) {
-                // Store details
+                // Market details
                 Column(
                     modifier = Modifier
                         .weight(1f)
@@ -82,30 +79,30 @@ fun StoreDetailScreen(modifier: Modifier = Modifier, store: Store, goBack: () ->
                         horizontalArrangement = Arrangement.spacedBy(8.dp),
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Text(text = store.name, style = Typography.headlineLarge)
+                        Text(text = market.name, style = Typography.headlineLarge)
                         Icon(
                             painter = painterResource(R.drawable.ic_shopping_bag),
-                            contentDescription = "Store icon",
+                            contentDescription = "Market icon",
                             tint = GreenBase
                         )
                     }
 
-                    Text(text = store.description, style = Typography.bodyMedium)
+                    Text(text = market.description, style = Typography.bodyMedium)
 
                     AvailableCoupons(
-                        modifier = Modifier.fillMaxWidth(), coupons = store.coupons
+                        modifier = Modifier.fillMaxWidth(), coupons = market.coupons
                     )
 
                     InfoSection(
-                        modifier = Modifier.fillMaxWidth(), store = store
+                        modifier = Modifier.fillMaxWidth(), market = market
                     )
 
-//                    if (store.couponRules.isNotEmpty()) {
+//                    if (market.couponRules.isNotEmpty()) {
 //                        HorizontalDivider(
 //                            modifier = Modifier.fillMaxWidth()
 //                        )
 //                        RulesSection(
-//                            modifier = Modifier.fillMaxWidth(), couponRules = store.couponRules
+//                            modifier = Modifier.fillMaxWidth(), couponRules = market.couponRules
 //                        )
 //                    }
                 }
@@ -130,10 +127,10 @@ fun StoreDetailScreen(modifier: Modifier = Modifier, store: Store, goBack: () ->
 
 @Preview
 @Composable
-private fun StoreDetailScreenPreview() {
-    StoreDetailScreen(
+private fun MarketDetailScreenPreview() {
+    MarketDetailScreen(
         modifier = Modifier,
-        store = mockedStores[0],
+        market = mockedMarkets[0],
         goBack = {}
     )
 }

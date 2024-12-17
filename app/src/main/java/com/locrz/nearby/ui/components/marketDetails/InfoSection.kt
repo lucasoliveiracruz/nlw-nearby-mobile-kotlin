@@ -1,4 +1,4 @@
-package com.locrz.nearby.ui.components.storeDetails
+package com.locrz.nearby.ui.components.marketDetails
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -13,13 +13,13 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.locrz.nearby.R
-import com.locrz.nearby.data.model.Store
-import com.locrz.nearby.data.model.mocks.mockedStores
+import com.locrz.nearby.data.model.Market
+import com.locrz.nearby.data.model.mocks.mockedMarkets
 import com.locrz.nearby.ui.theme.Gray400
 import com.locrz.nearby.ui.theme.Typography
 
 @Composable
-fun InfoSection(modifier: Modifier = Modifier, store: Store) {
+fun InfoSection(modifier: Modifier = Modifier, market: Market) {
     Column (
         modifier = modifier,
         verticalArrangement = Arrangement.spacedBy(8.dp)
@@ -38,7 +38,7 @@ fun InfoSection(modifier: Modifier = Modifier, store: Store) {
                     contentDescription = "Address icon",
                     tint = Gray400
                 )
-                Text(text = store.fullAddress, style = Typography.bodyMedium, color = Gray400)
+                Text(text = market.address, style = Typography.bodyMedium, color = Gray400)
             }
             Row (
                 horizontalArrangement = Arrangement.spacedBy(4.dp)
@@ -49,7 +49,7 @@ fun InfoSection(modifier: Modifier = Modifier, store: Store) {
                     contentDescription = "Address icon",
                     tint = Gray400
                 )
-                Text(text = store.phone, style = Typography.bodyMedium, color = Gray400)
+                Text(text = market.phone, style = Typography.bodyMedium, color = Gray400)
             }
         }
     }
@@ -60,6 +60,6 @@ fun InfoSection(modifier: Modifier = Modifier, store: Store) {
 private fun InfoSectionPreview() {
     InfoSection(
         modifier = Modifier.fillMaxWidth(),
-        store = mockedStores[0]
+        market = mockedMarkets[0]
     )
 }
