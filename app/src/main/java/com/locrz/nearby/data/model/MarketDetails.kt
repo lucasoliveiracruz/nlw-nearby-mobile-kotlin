@@ -9,6 +9,7 @@ data class Rule(
     val marketId: String,
 )
 
+@Serializable
 data class MarketDetails(
     val id: String,
     val name: String,

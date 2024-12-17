@@ -2,6 +2,7 @@ package com.locrz.nearby.data.model
 
 import androidx.annotation.DrawableRes
 import com.locrz.nearby.R
+import kotlinx.serialization.Serializable
 
 enum class CategoryEnum(
     val description: String,
@@ -23,6 +24,7 @@ enum class CategoryEnum(
     }
 }
 
+@Serializable
 data class Category(
     val id: String,
     val name: String
