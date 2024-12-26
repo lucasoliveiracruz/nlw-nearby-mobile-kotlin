@@ -1,4 +1,4 @@
-package com.locrz.nearby.ui.screens
+package com.locrz.nearby.ui.screens.market_details
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
